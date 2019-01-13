@@ -9,7 +9,11 @@ def change_s3bucket_aclperms(region, accessKey, secretKey, bucketName, ACLPerms)
         # If statement that accepts only the following strings
         if 'private' or 'public-read' or 'public-read-write' or 'authenticated-read' in bucketName:
             # Connect to your specified bucket
-            s3bucket_perms = boto3.resource('s3')
+            s3bucket_perms = boto3.resource('s3',
+                                            region = region,
+                                            aws_access_key_id=  accessKey,
+                                            aws_secret_access_key = secretKey)
+
             bucket_perms = s3bucket_perms.BucketAcl(bucketName)
             
             # Call the ACL perms that you specified and attach them to your bucket
