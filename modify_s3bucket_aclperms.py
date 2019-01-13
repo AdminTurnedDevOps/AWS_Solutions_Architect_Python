@@ -1,8 +1,6 @@
 import boto3
 import sys
 
-# Remember to write try/except blocks in and comments around code before commiting! *******
-
 def change_s3bucket_aclperms(region, accessKey, secretKey, bucketName, ACLPerms):
     # List which ACL options are available
     print('Please choose from the following ACL Perms: \t\nprivate \t\npublic-read \t\npublic-read-write \t\nauthenticated-read')
