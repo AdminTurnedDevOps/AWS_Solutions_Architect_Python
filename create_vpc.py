@@ -3,7 +3,7 @@ import sys
 
 ec2 = boto3.resource('ec2')
 
-def create_VPC(cidr, tenancy, name):
+def create_VPC(cidr, tenancy, name, privPub):
     #Create vpc
     vpc = ec2.create_vpc(
                          CidrBlock=cidr,
@@ -38,13 +38,23 @@ def create_VPC(cidr, tenancy, name):
             "Value": name
         }])
 
+
+
+    #Create route-table and route to internet if VPC is public
+    if privPub != 'public':
+        pass
+    else:
+        rt_table = vpc.create_route_table()
+        route = rt_table.create_route(DestinationCidrBlock = '0.0.0.0/0',
+                                      GatewayId = igw.id)
+
     return subnet
     return vpc
     return igw
 
-
 cidr = sys.argv[1]
 tenancy = sys.argv[2]
 name = sys.argv[3]
+privPub = sys.argv[4]
 
-print(create_VPC(cidr, tenancy, name))
+print(create_VPC(cidr, tenancy, name, privPub))
