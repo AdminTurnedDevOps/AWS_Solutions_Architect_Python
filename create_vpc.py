@@ -1,14 +1,18 @@
 import boto3
 import sys
 
-def create_VPC():
+def create_VPC(cidr, amzIP6, tenancy):
 
     ec2 = boto3.resource('ec2')
     vpc = ec2.create_vpc(
-                         CidrBlock='10.100.0.0/16',
-                         AmazonProvidedIpv6CidrBlock=False,
-                         InstanceTenancy='default'
+                         CidrBlock=cidr,
+                         AmazonProvidedIpv6CidrBlock=bool(amzIP6),
+                         InstanceTenancy=tenancy
                         )
     return vpc
 
-print(create_VPC())
+cidr = sys.argv[1]
+amzIP6 = sys.argv[2]
+tenancy = sys.argv[3]
+
+print(create_VPC(cidr, amzIP6, tenancy))
