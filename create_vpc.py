@@ -6,21 +6,21 @@ ec2 = boto3.resource('ec2')
 def create_VPC(cidr, tenancy, name, privPub):
     #Create vpc
     vpc = ec2.create_vpc(
-                         CidrBlock=cidr,
-                         AmazonProvidedIpv6CidrBlock=False,
-                         InstanceTenancy=tenancy
-                        )
+                    CidrBlock=cidr,
+                    AmazonProvidedIpv6CidrBlock=False,
+                    InstanceTenancy=tenancy
+                    )
     vpc.create_tags(
-                    Tags=[{
-                        "Key": "Name",
-                        "Value": name
-                    }])
+                Tags=[{
+                    "Key": "Name",
+                    "Value": name
+                }])
 
     #Create subnet
     subnet = ec2.create_subnet(
-                               CidrBlock='10.100.1.0/24',
-                               VpcId=vpc.id
-                              )
+                            CidrBlock='10.100.1.0/24',
+                            VpcId=vpc.id
+                            )
     subnet.create_tags(
         Tags=[{
             "Key": "Name",
@@ -30,8 +30,8 @@ def create_VPC(cidr, tenancy, name, privPub):
     #Create internet gateway
     igw = ec2.create_internet_gateway()
     igw.attach_to_vpc(
-                      VpcId=vpc.id
-                     )
+                VpcId=vpc.id
+                )
     igw.create_tags(
         Tags=[{
             "Key": "Name",
@@ -45,8 +45,10 @@ def create_VPC(cidr, tenancy, name, privPub):
         pass
     else:
         rt_table = vpc.create_route_table()
-        route = rt_table.create_route(DestinationCidrBlock = '0.0.0.0/0',
-                                      GatewayId = igw.id)
+        route = rt_table.create_route(
+                                DestinationCidrBlock = '0.0.0.0/0',
+                                GatewayId = igw.id
+                                )
 
     return subnet
     return vpc
