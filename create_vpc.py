@@ -59,5 +59,5 @@ tenancy = sys.argv[2]
 name = sys.argv[3]
 privPub = sys.argv[4]
 
-print(create_VPC(cidr, tenancy, name, privPub))
+create_VPC(cidr, tenancy, name, privPub)
 print('Your VPC is ready for usage')
