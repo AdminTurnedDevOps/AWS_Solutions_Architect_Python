@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="add9272a-222f-4fc8-925f-2fdc12c3889e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/create_vpc.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_vpc.py" afterDir="false" />
+    <list default="true" id="513d5d8e-28fa-41ba-b7ff-5cab1abb971f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/AWS_Solutions_Architect_Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AWS_Solutions_Architect_Python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +17,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create_vpc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="62" column="30" lean-forward="true" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+            <state>
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -28,13 +29,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/create_vpc.py" />
-      </list>
-    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="699" />
@@ -80,11 +74,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="add9272a-222f-4fc8-925f-2fdc12c3889e" name="Default Changelist" comment="" />
-      <created>1548815309551</created>
+      <changelist id="513d5d8e-28fa-41ba-b7ff-5cab1abb971f" name="Default Changelist" comment="" />
+      <created>1548815904986</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1548815309551</updated>
+      <updated>1548815904986</updated>
     </task>
     <servers />
   </component>
@@ -114,8 +108,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/create_vpc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="62" column="30" lean-forward="true" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+        <state>
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
