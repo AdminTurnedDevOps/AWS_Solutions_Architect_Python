@@ -1,6 +1,6 @@
 import boto3
 import sys
-# To use this script supply cidr block, tenancy, name for vpc, and whether or not if the subnet is public or private
+# To use this script supply cidr block, tenancy, name for vpc, and whether or not the subnet is public or private
 # ex: create_vpc.py 10.100.100.0/16 default myName public
 
 ec2 = boto3.resource('ec2')
