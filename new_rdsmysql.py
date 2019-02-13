@@ -2,9 +2,11 @@ import boto3
 import sys
 import time
 import logging
-from simplecrypt import encrypt,decrypt 
+import getpass
 
-def new_rdsmysql(dbname, instanceID, storage, dbInstancetype, dbusername, masterPass):
+def new_rdsmysql(dbname, instanceID, storage, dbInstancetype, dbusername):
+    
+    masterPass = getpass.getpass('DBMasterPassword: ')
     if len(masterPass) < 10:
         logging.warning('Password is not at least 10 characters. Please try again')
         time.sleep(5)
@@ -46,6 +48,5 @@ instanceID = sys.argv[2]
 storage = sys.argv[3]
 dbInstancetype = sys.argv[4]
 dbusername = sys.argv[5]
-masterPass = sys.argv[6]
 
-new_rdsmysql(dbname, instanceID, storage, dbInstancetype, dbusername, masterPass)
+new_rdsmysql(dbname, instanceID, storage, dbInstancetype, dbusername)
