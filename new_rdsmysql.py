@@ -2,6 +2,7 @@ import boto3
 import sys
 import time
 import logging
+from simplecrypt import encrypt,decrypt 
 
 def new_rdsmysql(dbname, instanceID, storage, dbInstancetype, dbusername, masterPass):
     if len(masterPass) < 10:
@@ -11,30 +12,34 @@ def new_rdsmysql(dbname, instanceID, storage, dbInstancetype, dbusername, master
     else:
         None
     
-    rds_instance = boto3.client('rds')
-    create_instance = rds_instance.create_db_instance(
-        DBName = dbname,
-        DBInstanceIdentifier = instanceID,
-        AllocatedStorage = int(storage),
-        DBInstanceClass = dbInstancetype,
-        Engine = 'mysql',
-        MasterUsername = dbusername,
-        MasterUserPassword = str(masterPass),
-        MultiAZ = True,
-        EngineVersion = '5.7.23',
-        AutoMinorVersionUpgrade = False,
-        LicenseModel = 'general-public-license',
-        PubliclyAccessible = False,
+    try:
+        rds_instance = boto3.client('rds')
+        create_instance = rds_instance.create_db_instance(
+            DBName = dbname,
+            DBInstanceIdentifier = instanceID,
+            AllocatedStorage = int(storage),
+            DBInstanceClass = dbInstancetype,
+            Engine = 'mysql',
+            MasterUsername = dbusername,
+            MasterUserPassword = str(masterPass),
+            MultiAZ = True,
+            EngineVersion = '5.7.23',
+            AutoMinorVersionUpgrade = False,
+            LicenseModel = 'general-public-license',
+            PubliclyAccessible = False,
 
-        Tags = [
-            {
-            'Key': 'Name',
-            'Value' : dbname
-            }
-        ]
-    )
+            Tags = [
+                {
+                'Key': 'Name',
+                'Value' : dbname
+                }
+            ]
+        )
 
-    print(create_instance)
+        print(create_instance)
+    except Exception as e:
+        logging.warning('An error has occured')
+        print(e)
 
 dbname = sys.argv[1]
 instanceID = sys.argv[2]
